@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ram-dsa-mad" />
+        <module name="dsa-practise" />
       </profile>
     </annotationProcessing>
   </component>
