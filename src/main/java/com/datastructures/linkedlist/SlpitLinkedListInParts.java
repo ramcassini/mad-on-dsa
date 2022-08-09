@@ -20,7 +20,7 @@ public class SlpitLinkedListInParts {
             result[i]=p;
             for(int j=0;j<parts+(diff>0?1:0);j++){
                 temp=p;
-                temp=temp.next;
+                p=p.next;
             }
             temp.next=null;
             i++;
