@@ -5,39 +5,42 @@ import java.util.Stack;
 public class ScoreOfParenthesis {
     public int scoreOfParentheses(String s) {
 
-        Stack<Character> st=new Stack<>();
-        int count=0;
-        int product=1;
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='('){
+       if(s==null || s.length()==0) return 0;
 
-                st.push('(');
-            }
-            else{
-                if(st.peek()!=s.charAt(i)){
-                    st.pop();
-                    if(product==2){
-                        count=count*product;
-                        product=1;
-                    }else{
-                        count++;
-                    }
+       Stack<String> st=new Stack<>();
 
-                    if(!st.isEmpty() && st.peek()=='('){
-                        product=2;
-                    }
+       for(int i=0;i<s.length();i++){
+           char c=s.charAt(i);
+           if(st.isEmpty() || c=='('){
+               st.push(c+"");
+           }
+           else{
+               int innerVal=0;
+               while(!st.isEmpty() && !st.peek().equals("(")){
+                   innerVal+=Integer.valueOf(st.peek());
+                   st.pop();
+               }
+               st.pop();
+               if(innerVal==0){
+                   st.push("1");
+               }
+               else{
+                   st.push(2*innerVal+"");
+               }
 
-                }
-
-            }
+           }
+       }
+       int ans=0;
+       while(!st.empty()){
+         ans+=Integer.parseInt(st.pop());
         }
 
-        return count;
+        return ans;
     }
 
     public static void main(String[] args) {
 
         System.out.println(new ScoreOfParenthesis().scoreOfParentheses(
-                "(()(()))"));
+                "()()"));
     }
 }
