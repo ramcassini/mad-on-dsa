@@ -15,7 +15,7 @@ public class CombinationSum {
         List<Integer> resultList = new ArrayList<>();
 
         combinationSumBTUtil(0,candidates,target,resultList,finalResultList);
-
+//        combinationSumHelper(0,finalResultList,new ArrayList<Integer>(),target,candidates);
 
         return new ArrayList<>(finalResultList);
 
@@ -32,7 +32,7 @@ public class CombinationSum {
     private void combinationSumBTUtil(int index,int[] candidates, int target, List<Integer> resultList, Set<List<Integer>> finalResultList) {
 
         if(target==0){
-            printList(resultList);
+//            printList(resultList);
             finalResultList.add(new ArrayList<>(resultList));
             return;
         }
@@ -56,11 +56,12 @@ public class CombinationSum {
     }
 
 
+
     public static void main(String[] args) {
 
         int[] candidates = {2,3,6,7};
         int target = 7;
 
-        new CombinationSum().combinationSum(candidates,target);
+        System.out.println(new CombinationSum().combinationSum(candidates,target));
     }
 }
