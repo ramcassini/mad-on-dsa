@@ -30,9 +30,6 @@ public class MinCostClimingStairs {
 
     public int minCostClimbingStairsBT(int[] cost,int n,int[] dp) {
 
-        if(n==0) return cost[0];
-        if(n==1) return cost[1];
-
         dp[0]=cost[0];
         dp[1]=cost[1];
         for(int i=2;i<=n;i++){
